@@ -8,22 +8,23 @@ function refresh(){
 }
 var res = generatedWord.split("");
 console.log(generatedWord);
-document.getElementById("input_"+lingo_row+"_0").value = generatedWord[0]
+document.getElementById("input_"+lingo_row+"_0").value = generatedWord[0];
 console.log(res);
 
 function check(){
   getTypedWord();
+console.log(lingo_row);
+      for (var z=0; z<=4; z++) {
+      if (res.includes(document.getElementById("input_"+lingo_row+"_"+z).value)) {
+        document.getElementById("input_"+lingo_row+"_"+z).style.backgroundColor = "yellow";
+      }
+      }
       for(var p=0; p<=4; p++){
       if (document.getElementById("input_"+lingo_row+"_"+p).value == res[p]) {
         document.getElementById("input_"+lingo_row+"_"+p).style.backgroundColor = "red";
-
-      }else {
-        for (var x = 1; x <= 4; x++) {
-        if (document.getElementById("input_"+lingo_row+"_"+p).value == res[x]) {
-          document.getElementById("input_"+lingo_row+"_"+p).style.backgroundColor = "yellow";
-          }
-        }
+        delete res[p];
       }
+      console.log(res);
     }
     if (generatedWord===typedWord) {
        alert("gewonnen");
@@ -33,8 +34,10 @@ function check(){
     if (wrong == 5) {
       alert("Verloren");
       location.reload();
-  }
-   lingo_row++
+    }
+    console.log(res);
+    lingo_row++
+    console.log(lingo_row);
    var main_iets = document.getElementById("game");
    var br = document.createElement("br")
    main_iets.appendChild(br)
@@ -46,10 +49,10 @@ function check(){
    input.setAttribute("value","");
    input.setAttribute("maxlength","1");
    input.innerHTM = "";
-
    main_iets.appendChild(input);
  }
- document.getElementById("input_"+lingo_row+"_0").value = generatedWord[0]
+document.getElementById("input_"+lingo_row+"_0").value = generatedWord[0];
+res = generatedWord.split("");
 }
 
 function getTypedWord(){

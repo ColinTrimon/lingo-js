@@ -40,8 +40,15 @@ button{
 
 input{
   background-color: rgb(0, 163, 255);
-  border-radius: 15px;
-  height: 25px;
-  font-size: 15px;
+  border-radius: 2px;
+  height: 100px;
+  width: 100px;
+  font-size: 50px;
   text-transform: uppercase;
+}
+
+#img{
+  position: absolute;
+  left: 620px;
+  bottom: 200px;
 }
